@@ -1,0 +1,48 @@
+import random
+
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+lst = [rock, paper, scissors]
+you = int(input("Enter: 0 = rock, 1 = paper or 2 = scissors: "))
+if -1 >= you or you > 2:
+    print("Error, enter new number.")
+else:
+    print(f"Your choice: ")
+    print(lst[you])
+    pk = random.randint(0,2)
+    print(f"Computer choice: ")
+    print(lst[pk])
+    if you == pk:
+        print("Nobody won")
+    elif you == 0 and pk == 2:
+        print("You win!")
+    elif you == 2 and pk == 0:
+        print("You lose!")
+    elif you > pk:
+        print("You win!")
+    else:
+        print("You lose!")
