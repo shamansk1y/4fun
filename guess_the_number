@@ -1,0 +1,22 @@
+import random
+mn, mx = int(input("Задайте диапазон чисел для игры начиная с минимального, папример '1': ")), int(input("Задайте максимальное, папример '100': "))
+tries_counter = 0
+tries = int(input("Укажите количество попыток чтобы угадать придуманное компьтером число, например '6': "))
+number = random.randint(mn,mx)
+print(f"Попробуй угадать загаданное мной число от 1 до 100. У тебя на это есть {tries} попыток.")
+print()
+while tries_counter < tries:
+    guess = int(input("Я думаю компьютер задумал число: "))
+    tries_counter += 1
+    if guess < number:
+        print("Не угадал, но есть подсказка, что ваше число меньше искомого")
+        print()
+    elif guess > number:
+        print("Не угадал, но есть подсказка, что ваше число больше искомого")
+        print()
+    elif guess == number:
+        print(f"Вы угадали, я задумал число {number}")
+        break
+if guess != number and tries_counter == tries:
+    print(f"Ты не угадал, твои {tries} попыток закончились")
+        
