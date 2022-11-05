@@ -1,4 +1,4 @@
-import random
+from random import randint
 
 rock = '''
     _______
@@ -33,7 +33,7 @@ if -1 >= you or you > 2:
 else:
     print(f"Your choice: ")
     print(lst[you])
-    pk = random.randint(0,2)
+    pk = randint(0,2)
     print(f"Computer choice: ")
     print(lst[pk])
     if you == pk:
