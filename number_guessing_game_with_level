@@ -1,0 +1,56 @@
+logo = """
+ ____   __ __  ___ ___  ____     ___  ____           
+|    \ |  |  ||   |   ||    \   /  _]|    \          
+|  _  ||  |  || _   _ ||  o  ) /  [_ |  D  )         
+|  |  ||  |  ||  \_/  ||     ||    _]|    /          
+|  |  ||  :  ||   |   ||  O  ||   [_ |    \          
+|  |  ||     ||   |   ||     ||     ||  .  \         
+|__|__| \__,_||___|___||_____||_____||__|\_|         
+                                                     
+  ____  __ __    ___  _____ _____ ____  ____    ____ 
+ /    ||  |  |  /  _]/ ___// ___/|    ||    \  /    |
+|   __||  |  | /  [_(   \_(   \_  |  | |  _  ||   __|
+|  |  ||  |  ||    _]\__  |\__  | |  | |  |  ||  |  |
+|  |_ ||  :  ||   [_ /  \ |/  \ | |  | |  |  ||  |_ |
+|     ||     ||     |\    |\    | |  | |  |  ||     |
+|___,_| \__,_||_____| \___| \___||____||__|__||___,_|
+                                                     
+  ____   ____  ___ ___    ___                        
+ /    | /    ||   |   |  /  _]                       
+|   __||  o  || _   _ | /  [_                        
+|  |  ||     ||  \_/  ||    _]                       
+|  |_ ||  _  ||   |   ||   [_                        
+|     ||  |  ||   |   ||     |                       
+|___,_||__|__||___|___||_____|                       
+                                                     
+"""
+from random import randint
+print(logo)
+print("Welcome to the Number Guessing Game!")
+print("I'm thinking of a number between 1 and 100!")
+level = input("Choose a difficulty. Type 'easy' or 'hard': ")
+    
+def func(tries):
+    number = randint(1,100)
+    print(f"You have {tries} attempts remaining to guess the number.\n")
+    while tries > 0:
+        guess = int(input("Make a guess: "))
+        tries -= 1
+        if guess < number:
+            print(f"Too low.")
+            print(f"You have {tries} attempts remaining to guess the number.\n")
+        elif guess > number:
+            print("Too high.")
+            print(f"You have {tries} attempts remaining to guess the number.\n")
+        elif guess == number:
+            print(f"My guessed the number {number}")
+            break
+    if guess != number and tries < 1:
+        print(f"You did not guess, your attempts are over.")
+        
+if level == 'easy':
+    func(10)
+elif level == 'hard':
+    func(6)
+else:
+    print("Unknow command, try again")
