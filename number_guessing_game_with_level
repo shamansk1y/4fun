@@ -25,11 +25,15 @@ logo = """
                                                      
 """
 from random import randint
-print(logo)
-print("Welcome to the Number Guessing Game!")
-print("I'm thinking of a number between 1 and 100!")
-level = input("Choose a difficulty. Type 'easy' or 'hard': ")
-    
+HARD_LEVEL = 5
+EASY_LEVEL = 10
+def game_start():
+    print(logo)
+    print("Welcome to the Number Guessing Game!")
+    print("I'm thinking of a number between 1 and 100!")
+    level = input("Choose a difficulty. Type 'easy' or 'hard': ")
+    check_level(level)
+
 def func(tries):
     number = randint(1,100)
     print(f"You have {tries} attempts remaining to guess the number.\n")
@@ -47,10 +51,11 @@ def func(tries):
             break
     if guess != number and tries < 1:
         print(f"You did not guess, your attempts are over.")
-        
-if level == 'easy':
-    func(10)
-elif level == 'hard':
-    func(6)
-else:
-    print("Unknow command, try again")
+def check_level(level):
+    if level == 'easy':
+        func(EASY_LEVEL)
+    elif level == 'hard':
+        func(HARD_LEVEL)
+    else:
+        print("unknow command, try agin")
+game_start()
